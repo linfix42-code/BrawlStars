@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Stars 2D Pro — GitHub Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu" class="menu-overlay">
+        <h1 class="game-title">BRAWL STARS <span class="edition">2D</span></h1>
+        
+        <div class="lobby-container">
+            <div class="character-preview">
+                <div class="character-card Colt">
+                    <h3>Кольт</h3>
+                    <p>Рейнджер із револьверами</p>
+                </div>
+            </div>
+            
+            <div class="menu-buttons">
+                <button id="start-btn" class="btn btn-play">У БІЙ!</button>
+                <div class="stats-bar">
+                    <div>🏆 Рахунок: <span id="menu-high-score">0</span></div>
+                    <div>💎 Кристали: <span id="menu-total-gems">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div id="ui-hud">
+            <div class="hud-item hp-bar">HP: <span id="hp">100</span></div>
+            <div class="hud-item gems-bar">💎 <span id="gems">0</span></div>
+            <div class="hud-item score-bar">🏆 <span id="score">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="1024" height="576"></canvas>
+    </div>
+
+    <script href="player.js"></script>
+    <script href="game.js"></script>
+</body>
+</html>
