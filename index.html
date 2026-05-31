@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brawl Stars 2D — Лобі зі складністю</title>
+    <!-- ПЕРЕВІР ЦЕЙ РЯДОК: має бути href, а не src -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ГОЛОВНЕ МЕНЮ (ЛОБІ) -->
     <div id="main-menu" class="menu-overlay">
         <h1 class="game-title">BRAWL STARS <span class="edition">2D</span></h1>
         
@@ -37,7 +39,7 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="margin-top: 20px;">ВИБЕРУТЬ СКЛАДНІСТЬ:</h3>
+                <h3 class="section-title" style="margin-top: 20px;">ВИБЕРИ СКЛАДНІСТЬ:</h3>
                 <div class="difficulty-selection">
                     <button class="diff-btn active" data-diff="normal">НОРМАЛЬНО</button>
                     <button class="diff-btn" data-diff="hard">ХАРД</button>
@@ -49,21 +51,22 @@
                 <button id="start-btn" class="btn btn-play">У БІЙ!</button>
                 <div class="stats-bar">
                     <div>🏆 Складність: <span id="hud-diff-name" style="color: #f1c40f;">Нормально</span></div>
-                    <div>💎 Кристали: <span id="menu-total-gems">0</span></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ІГРОВИЙ ЕКРАН -->
     <div id="game-screen" class="hidden">
         <div id="ui-hud">
-            <div class="hud-item player-name-hud"><span id="hud-nickname">Гравець</span> <span id="game-diff-tag" style="font-size: 12px; color: #f1c40f;">[N]</span></div>
+            <div class="hud-item player-name-hud"><span id="hud-nickname">Гравець</span> <span id="game-diff-tag" style="font-size: 12px; color: #f1c40f;">[Normal]</span></div>
             <div class="hud-item hp-bar">HP: <span id="hp">100</span></div>
             <div class="hud-item gems-bar">💎 <span id="gems">0</span></div>
         </div>
         <canvas id="gameCanvas" width="1024" height="576"></canvas>
     </div>
 
+    <!-- Скрипти підключаються через src -->
     <script src="menu.js"></script>
     <script src="player.js"></script>
     <script src="game.js"></script>
