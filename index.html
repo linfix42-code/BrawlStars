@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl Stars 2D Pro — GitHub Edition</title>
+    <title>Brawl Stars 2D — Лобі</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ГОЛОВНЕ МЕНЮ (ЛОБІ) -->
     <div id="main-menu" class="menu-overlay">
         <h1 class="game-title">BRAWL STARS <span class="edition">2D</span></h1>
         
+        <!-- Блок профілю гравця -->
+        <div class="profile-box">
+            <span class="icon-trophy">🏆</span>
+            <input type="text" id="player-nickname" value="Brawler777" maxlength="15" placeholder="Введіть нік...">
+        </div>
+
         <div class="lobby-container">
-            <div class="character-preview">
-                <div class="character-card Colt">
+            <!-- Вибір персонажів -->
+            <div class="characters-selection">
+                <div class="char-card active" data-char="colt">
+                    <div class="char-avatar colt-av"></div>
                     <h3>Кольт</h3>
-                    <p>Рейнджер із револьверами</p>
+                    <span class="char-type">Стрілець</span>
+                </div>
+                <div class="char-card" data-char="shelly">
+                    <div class="char-avatar shelly-av"></div>
+                    <h3>Шеллі</h3>
+                    <span class="char-type">Шокер</span>
+                </div>
+                <div class="char-card" data-char="el_primo">
+                    <div class="char-avatar primo-av"></div>
+                    <h3>Ель Прімо</h3>
+                    <span class="char-type">Важковаговик</span>
                 </div>
             </div>
             
-            <div class="menu-buttons">
+            <!-- Права панель з кнопкою старту -->
+            <div class="action-panel">
                 <button id="start-btn" class="btn btn-play">У БІЙ!</button>
                 <div class="stats-bar">
-                    <div>🏆 Рахунок: <span id="menu-high-score">0</span></div>
+                    <div>🏆 Рекорд: <span id="menu-high-score">0</span></div>
                     <div>💎 Кристали: <span id="menu-total-gems">0</span></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ІГРОВИЙ ЕКРАН (поки що схований) -->
     <div id="game-screen" class="hidden">
         <div id="ui-hud">
+            <div class="hud-item player-name-hud"><span id="hud-nickname">Гравець</span></div>
             <div class="hud-item hp-bar">HP: <span id="hp">100</span></div>
             <div class="hud-item gems-bar">💎 <span id="gems">0</span></div>
-            <div class="hud-item score-bar">🏆 <span id="score">0</span></div>
         </div>
         <canvas id="gameCanvas" width="1024" height="576"></canvas>
     </div>
 
-    <script href="player.js"></script>
-    <script href="game.js"></script>
+    <!-- Підключаємо скрипти (menu.js керує лобі) -->
+    <script src="menu.js"></script>
+    <script src="player.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
