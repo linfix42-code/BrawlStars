@@ -1,7 +1,7 @@
 const selectedGameData = {
     nickname: "Brawler777",
     character: "colt",
-    difficulty: "normal" // Значення за замовчуванням
+    difficulty: "normal"
 };
 
 const nicknameInput = document.getElementById("player-nickname");
@@ -28,15 +28,17 @@ charCards.forEach(card => {
     });
 });
 
-// Клік по кнопках складності
+// ВИПРАВЛЕНА ЛОГІКА КЛІКУ СКЛАДНОСТІ
 diffBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-        document.querySelector(".diff-btn.active").classList.remove("remove").classList.remove("active");
-        btn.classList.add("active");
+        const currentActive = document.querySelector(".diff-btn.active");
+        if (currentActive) {
+            currentActive.classList.remove("active");
+        }
         
+        btn.classList.add("active");
         selectedGameData.difficulty = btn.getAttribute("data-diff");
         
-        // Оновлюємо текст складності в меню
         if(selectedGameData.difficulty === "normal") hudDiffName.innerText = "Нормально";
         if(selectedGameData.difficulty === "hard") hudDiffName.innerText = "Хард";
         if(selectedGameData.difficulty === "insane") hudDiffName.innerText = "Екстрем";
@@ -46,7 +48,6 @@ diffBtns.forEach(btn => {
 startBtn.addEventListener("click", () => {
     hudNickname.innerText = selectedGameData.nickname;
     
-    // Виставляємо мітку складності для ігрового екрану
     if(selectedGameData.difficulty === "normal") gameDiffTag.innerText = "[Normal]";
     if(selectedGameData.difficulty === "hard") gameDiffTag.innerText = "[Hard]";
     if(selectedGameData.difficulty === "insane") gameDiffTag.innerText = "[Insane]";
