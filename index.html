@@ -3,63 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl Stars 2D — Лобі</title>
+    <title>Brawl Stars 2D — Лобі зі складністю</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ГОЛОВНЕ МЕНЮ (ЛОБІ) -->
     <div id="main-menu" class="menu-overlay">
         <h1 class="game-title">BRAWL STARS <span class="edition">2D</span></h1>
         
-        <!-- Блок профілю гравця -->
         <div class="profile-box">
             <span class="icon-trophy">🏆</span>
             <input type="text" id="player-nickname" value="Brawler777" maxlength="15" placeholder="Введіть нік...">
         </div>
 
         <div class="lobby-container">
-            <!-- Вибір персонажів -->
-            <div class="characters-selection">
-                <div class="char-card active" data-char="colt">
-                    <div class="char-avatar colt-av"></div>
-                    <h3>Кольт</h3>
-                    <span class="char-type">Стрілець</span>
+            <div class="left-settings">
+                <h3 class="section-title">ОБЕРИ БРАВЛЕРА:</h3>
+                <div class="characters-selection">
+                    <div class="char-card active" data-char="colt">
+                        <div class="char-avatar colt-av"></div>
+                        <h3>Кольт</h3>
+                        <span class="char-type">Стрілець</span>
+                    </div>
+                    <div class="char-card" data-char="shelly">
+                        <div class="char-avatar shelly-av"></div>
+                        <h3>Шеллі</h3>
+                        <span class="char-type">Шокер</span>
+                    </div>
+                    <div class="char-card" data-char="el_primo">
+                        <div class="char-avatar primo-av"></div>
+                        <h3>Ель Прімо</h3>
+                        <span class="char-type">Важковаговик</span>
+                    </div>
                 </div>
-                <div class="char-card" data-char="shelly">
-                    <div class="char-avatar shelly-av"></div>
-                    <h3>Шеллі</h3>
-                    <span class="char-type">Шокер</span>
-                </div>
-                <div class="char-card" data-char="el_primo">
-                    <div class="char-avatar primo-av"></div>
-                    <h3>Ель Прімо</h3>
-                    <span class="char-type">Важковаговик</span>
+
+                <h3 class="section-title" style="margin-top: 20px;">ВИБЕРУТЬ СКЛАДНІСТЬ:</h3>
+                <div class="difficulty-selection">
+                    <button class="diff-btn active" data-diff="normal">НОРМАЛЬНО</button>
+                    <button class="diff-btn" data-diff="hard">ХАРД</button>
+                    <button class="diff-btn" data-diff="insane">ЕКСТРЕМ</button>
                 </div>
             </div>
             
-            <!-- Права панель з кнопкою старту -->
             <div class="action-panel">
                 <button id="start-btn" class="btn btn-play">У БІЙ!</button>
                 <div class="stats-bar">
-                    <div>🏆 Рекорд: <span id="menu-high-score">0</span></div>
+                    <div>🏆 Складність: <span id="hud-diff-name" style="color: #f1c40f;">Нормально</span></div>
                     <div>💎 Кристали: <span id="menu-total-gems">0</span></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ІГРОВИЙ ЕКРАН (поки що схований) -->
     <div id="game-screen" class="hidden">
         <div id="ui-hud">
-            <div class="hud-item player-name-hud"><span id="hud-nickname">Гравець</span></div>
+            <div class="hud-item player-name-hud"><span id="hud-nickname">Гравець</span> <span id="game-diff-tag" style="font-size: 12px; color: #f1c40f;">[N]</span></div>
             <div class="hud-item hp-bar">HP: <span id="hp">100</span></div>
             <div class="hud-item gems-bar">💎 <span id="gems">0</span></div>
         </div>
         <canvas id="gameCanvas" width="1024" height="576"></canvas>
     </div>
 
-    <!-- Підключаємо скрипти (menu.js керує лобі) -->
     <script src="menu.js"></script>
     <script src="player.js"></script>
     <script src="game.js"></script>
