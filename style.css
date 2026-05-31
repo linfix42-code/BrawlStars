@@ -16,7 +16,7 @@ body {
     display: none !important;
 }
 
-/* СТИЛІ МЕНЮ */
+/* ГОЛОВНЕ МЕНЮ */
 .menu-overlay {
     display: flex;
     flex-direction: column;
@@ -25,65 +25,139 @@ body {
     width: 100%;
     height: 100%;
     justify-content: center;
+    position: relative;
 }
 
 .game-title {
-    font-size: 64px;
+    font-size: 56px;
     color: #f1c40f;
-    text-shadow: 4px 4px 0px #c0392b, 8px 8px 0px #000;
-    margin-bottom: 30px;
+    text-shadow: 4px 4px 0px #c0392b, 6px 6px 0px #000;
+    margin: 0 0 20px 0;
     letter-spacing: 2px;
 }
 
-.game-title .edition {
-    color: #e74c3c;
+.game-title .edition { color: #e74c3c; }
+
+/* НІКНЕЙМ ГРАВЦЯ */
+.profile-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 3px solid #3498db;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+#player-nickname {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Impact', sans-serif;
+    font-size: 22px;
+    outline: none;
+    width: 160px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#player-nickname:focus {
+    color: #f1c40f;
+}
+
+/* КОНТЕЙНЕР ЛОБІ */
 .lobby-container {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 40px;
-    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 25px;
     border: 4px solid #f39c12;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.7);
 }
 
-.character-card {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    padding: 30px;
+/* ВИБІР ПЕРСОНАЖІВ */
+.characters-selection {
+    display: flex;
+    gap: 15px;
+}
+
+.char-card {
+    background: #2c3e50;
+    padding: 15px;
     border-radius: 15px;
-    border: 3px solid #fff;
+    border: 3px solid #7f8c8d;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    width: 200px;
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.char-card:hover {
+    transform: scale(1.05);
+}
+
+.char-card.active {
+    border-color: #f1c40f;
+    box-shadow: 0 0 15px #f1c40f;
+    background: #34495e;
+}
+
+.char-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px auto;
+    border-radius: 50px;
+    border: 3px solid #fff;
+}
+
+/* Кольори-заглушки замість картинок бравлерів */
+.colt-av { background: #3498db; }
+.shelly-av { background: #9b59b6; }
+.primo-av { background: #e67e22; }
+
+.char-card h3 { margin: 5px 0; font-size: 18px; }
+.char-type { font-size: 12px; color: #bdc3c7; font-family: Arial, sans-serif; }
+
+/* ПАНЕЛЬ КНОПКИ СТАРТУ */
+.action-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .btn-play {
     background: linear-gradient(to bottom, #ff9f43, #ee5253);
     color: white;
-    font-size: 32px;
-    padding: 15px 60px;
+    font-size: 36px;
+    padding: 15px 50px;
     border: 4px solid #fff;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 0 #b33939, 0 15px 20px rgba(0,0,0,0.4);
-    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 8px 0 #b33939, 0 12px 20px rgba(0,0,0,0.5);
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 1px;
 }
 
 .btn-play:active {
     transform: translateY(4px);
-    box-shadow: 0 4px 0 #b33939, 0 8px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 0 #b33939, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .stats-bar {
-    margin-top: 20px;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-around;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
     background: rgba(0,0,0,0.6);
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* ІГРОВИЙ ЕКРАН */
@@ -97,21 +171,21 @@ body {
 }
 
 .hud-item {
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 30px;
-    font-size: 20px;
+    font-size: 18px;
     border: 2px solid #fff;
     font-weight: bold;
     text-shadow: 1px 1px 2px #000;
 }
 
+.player-name-hud { background: #34495e; color: #fff; }
 .hp-bar { background: #e74c3c; }
 .gems-bar { background: #2ecc71; }
-.score-bar { background: #f1c40f; color: #000; text-shadow: none; }
 
 canvas {
     border: 6px solid #1e3799;
-    background-color: #388e3c; /* Колір трави */
+    background-color: #27ae60;
     box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    border-radius: 12px;
+    border-radius: 15px;
 }
